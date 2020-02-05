@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux';
+import { startAuth } from '../ducks/auth';
 
 class Home extends Component {
    constructor(props) {
@@ -9,10 +11,24 @@ class Home extends Component {
    render() {
       return (
          <View>
-            <Text>Home</Text>
+            <Text>Home
+            </Text>
          </View>
       );
    }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+   return {
+      authReducer: state
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      startAuth: (count) => dispatch(startAuth(count))
+   }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

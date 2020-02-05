@@ -1,7 +1,8 @@
 export const AUTH = `ducks/auth/AUTH`
 
 const initialState = {
-    isLoading: false
+    isLoading: false,
+    count: 0
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -9,16 +10,21 @@ export const authReducer = (state = initialState, action) => {
         case AUTH: {
             return {
                 ...state,
-                isLoading: false
+                isLoading: false,
+                count: action.payload
             }
+        }
+        default: {
+            return { ...state }
         }
     }
 }
 
-export const startAuth = () => {
+export const startAuth = (count) => {
     return dispatch => {
         dispatch({
-            type: AUTH
+            type: AUTH,
+            payload: count
         })
     }
 }
