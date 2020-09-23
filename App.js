@@ -12,7 +12,7 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import Route from './src/common/route';
 import Store from './src/common/store';
-
+// test
 const App: () => React$Node = () => {
   return (
     <Provider store={Store.store}>
